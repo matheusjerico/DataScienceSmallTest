@@ -29,10 +29,6 @@ warnings.filterwarnings('ignore')
 ```
 
 
-```python
-
-```
-
 ### 2. Loading Dataset
 
 
