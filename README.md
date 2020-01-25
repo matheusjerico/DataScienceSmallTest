@@ -317,6 +317,34 @@ print("Kurtosis: {}".format(kurtosis(dataset['y'])))
 
 
 ```python
+# Construindo duas janelas
+f, (ax_box, ax_hist) = plt.subplots(2, sharex=True, gridspec_kw={"height_ratios": (.15, .85)})
+
+# Adicionando boxplot e histograma
+sns.boxplot(dataset["z"], ax=ax_box)
+sns.distplot(dataset["z"], ax=ax_hist)
+
+# Removendo nome do boxplot
+ax_box.set(xlabel='')
+
+# Adicionando titulo
+f.tight_layout()
+f.suptitle("Feature Z", y = 1.05)
+```
+
+
+
+
+    Text(0.5, 1.05, 'Feature Z')
+
+
+
+
+![png](imagens/output_21_1.png)
+
+
+
+```python
 print("Skewness: {}".format(skew(dataset['z'])))
 print("Kurtosis: {}".format(kurtosis(dataset['z'])))
 ```
@@ -326,7 +354,7 @@ print("Kurtosis: {}".format(kurtosis(dataset['z'])))
 
 
 **Analysis:**
-    - Features variables hava normal distribution.
+    - Features variables have normal distribution.
 
 #### 3.1.4 Target Label
 
@@ -347,7 +375,7 @@ dataset["label"].value_counts()
 
 
 
-![png](imagens/output_24_1.png)
+![png](imagens/output_25_1.png)
 
 
 **Analysis:**
@@ -361,7 +389,7 @@ g = sns.pairplot(dataset, hue="label", palette="husl")
 ```
 
 
-![png](imagens/output_27_0.png)
+![png](imagens/output_28_0.png)
 
 
 ### 4. Correlation
@@ -374,7 +402,7 @@ plt.show(heat_map)
 ```
 
 
-![png](imagens/output_29_0.png)
+![png](imagens/output_30_0.png)
 
 
 ### 5. Segregate a X and y variables
@@ -458,34 +486,6 @@ X_train, X_test, y_train, y_test = train_test_split(X_scaler, y, test_size=0.20)
 - GridSearchCV implements a “fit” and a “score” method. It also implements “predict”, “predict_proba”, “decision_function”, “transform” and “inverse_transform” if they are implemented in the estimator used.
 
 #### 8.1. C-Support Vector Classification
-
-
-```python
-# Construindo duas janelas
-f, (ax_box, ax_hist) = plt.subplots(2, sharex=True, gridspec_kw={"height_ratios": (.15, .85)})
-
-# Adicionando boxplot e histograma
-sns.boxplot(dataset["z"], ax=ax_box)
-sns.distplot(dataset["z"], ax=ax_hist)
-
-# Removendo nome do boxplot
-ax_box.set(xlabel='')
-
-# Adicionando titulo
-f.tight_layout()
-f.suptitle("Feature Z", y = 1.05)
-```
-
-
-
-
-    Text(0.5, 1.05, 'Feature Z')
-
-
-
-
-![png](imagens/output_42_1.png)
-
 
 
 ```python
